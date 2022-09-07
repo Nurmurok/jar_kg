@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import PostListApiView,PostCreateApiView,PostDetailApiView
-
+from .views import PostListApiView, PostCreateApiView, PostDetailApiView, PostUpdateApiView, PostDestroyApiView
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('list/', PostListApiView.as_view(), name='list'),
     path('create/', PostCreateApiView.as_view(), name='create'),
-    path('detail/<int:pk>/', PostDetailApiView.as_view(), name='detail'),
-
+    path('detail/<int:id>/', PostDetailApiView.as_view(), name='detail'),
+    path('update/<int:id>/', PostUpdateApiView.as_view(), name='update'),
+    path('delete/<int:id>/', PostDestroyApiView.as_view(), name='delete'),
 ]
